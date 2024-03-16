@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#countButton").click(function() {
+                var sentence = $("#sentenceInput").val();
+                var word = $("#wordInput").val();
+                var count = 0;
+                var pos = 0;
+                while ((pos = sentence.indexOf(word, pos)) !== -1) {
+                    count++;
+                    pos += word.length;
+                }
+                $("#result").text("The word '" + word + "' occurs " + count + " times in the sentence.");
+            });
+        });
+    </script>
+</head>
+<body>
+    <label for="sentenceInput">Sentence:</label><br>
+    <textarea id="sentenceInput"></textarea><br>
+    <label for="wordInput">Word:</label><br>
+    <input type="text" id="wordInput"><br>
+    <button id="countButton">Count</button><br>
+    <p id="result"></p>
+</body>
+</html>
